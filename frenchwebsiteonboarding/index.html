@@ -1,0 +1,354 @@
+
+
+<style>
+  .test-avatar{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:0.8rem;
+  font-weight:500;
+  flex-shrink:0;
+  line-height:1;
+}
+.test-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.test-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.hero-images{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:1.5rem;
+}
+
+.hero-image{
+  width:150px;
+  border-radius:8px;
+}
+
+.large-image{
+  width:210px;
+  transform:translateY(-10px); /* makes it “pop” */
+}
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --ivory:#FAF8F4;--noir:#1A1410;--gold:#B8965A;--blush:#F2E8DF;--muted:#7A6E64;--white:#FFFFFF;--bordeaux:#6B2737;
+  }
+  #app{font-family:'Jost',sans-serif;background:var(--ivory);color:var(--noir);min-height:600px;overflow:hidden}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:var(--white);border-bottom:1px solid var(--blush)}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;letter-spacing:0.04em;color:var(--noir)}
+  .logo span{color:var(--gold);font-style:italic}
+  .nav-tabs{display:flex;gap:0.25rem}
+  .tab-btn{background:none;border:none;padding:0.5rem 1rem;font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:500;color:var(--muted);cursor:pointer;border-radius:20px;transition:all 0.2s;letter-spacing:0.05em;text-transform:uppercase}
+  .tab-btn:hover{color:var(--noir);background:var(--blush)}
+  .tab-btn.active{color:var(--white);background:var(--noir)}
+  .page{display:none;animation:fadeIn 0.3s ease}
+  .page.active{display:block}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+  /* HOMEPAGE */
+  .hero{padding:4rem 2rem 3rem;text-align:center;position:relative;background:var(--white)}
+  .hero-tag{display:inline-block;background:var(--blush);color:var(--gold);font-size:0.72rem;font-weight:500;padding:0.35rem 1rem;border-radius:20px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.5rem}
+  .hero h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;line-height:1.2;color:var(--noir);margin-bottom:1rem}
+  .hero h1 em{color:var(--gold);font-style:italic}
+  .hero p{font-size:1.05rem;color:var(--muted);max-width:460px;margin:0 auto 2rem;line-height:1.7;font-weight:300}
+  .hero-cta{display:inline-flex;align-items:center;gap:0.5rem;background:var(--noir);color:var(--white);border:none;padding:0.75rem 1.75rem;border-radius:2px;font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;transition:all 0.2s;letter-spacing:0.08em;text-transform:uppercase}
+  .hero-cta:hover{background:var(--bordeaux);transform:translateY(-1px)}
+  .hero-divider{display:flex;align-items:center;justify-content:center;gap:0.75rem;margin:2.5rem auto 0;opacity:0.35}
+  .hero-divider::before,.hero-divider::after{content:'';flex:1;max-width:60px;height:1px;background:var(--gold)}
+  .hero-divider-fleur{color:var(--gold);font-size:1rem;opacity:1}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:2rem;background:var(--ivory)}
+  .stat-card{background:var(--white);border:1px solid var(--blush);border-radius:2px;padding:1.5rem;text-align:center}
+  .stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-weight:600}
+  .stat-label{font-size:0.78rem;color:var(--muted);margin-top:0.25rem;font-weight:400;letter-spacing:0.04em}
+  .features{padding:2rem;display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+  .feature{background:var(--white);border:1px solid var(--blush);border-radius:2px;padding:1.25rem 1.5rem;display:flex;gap:1rem;align-items:flex-start}
+  .feat-icon{font-size:1.5rem;margin-top:2px}
+  .feat-title{font-size:0.95rem;font-weight:500;color:var(--noir);margin-bottom:0.25rem;letter-spacing:0.02em}
+  .feat-desc{font-size:0.82rem;color:var(--muted);line-height:1.6}
+  .concept-band{background:var(--noir);color:var(--white);padding:2.5rem 2rem;margin-top:1rem;text-align:center;position:relative}
+  .concept-band::before{content:'✦';position:absolute;top:1rem;left:50%;transform:translateX(-50%);color:var(--gold);opacity:0.4;font-size:0.8rem}
+  .concept-band h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;margin-bottom:0.5rem;letter-spacing:0.04em}
+  .concept-band p{font-size:0.88rem;opacity:0.65;font-weight:300;max-width:400px;margin:0 auto;line-height:1.7}
+
+  /* MENU */
+  .menu-header{padding:2.5rem 2rem 1.5rem;background:var(--white);border-bottom:1px solid var(--blush)}
+  .menu-header h2{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--noir)}
+  .menu-header p{font-size:0.88rem;color:var(--muted);margin-top:0.35rem}
+  .menu-cats{display:flex;gap:0.5rem;padding:1rem 2rem;overflow-x:auto}
+  .cat-btn{background:none;border:1px solid var(--blush);padding:0.4rem 1rem;border-radius:2px;font-family:'Jost',sans-serif;font-size:0.78rem;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.2s;letter-spacing:0.06em;text-transform:uppercase}
+  .cat-btn:hover,.cat-btn.active{background:var(--noir);border-color:var(--noir);color:var(--white)}
+  .menu-grid{padding:1rem 2rem 2rem;display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem}
+  .menu-item{background:var(--white);border:1px solid var(--blush);border-radius:2px;padding:1.1rem 1.25rem;display:flex;justify-content:space-between;align-items:flex-start}
+  .menu-item.hidden{display:none}
+  .item-info .item-name{font-size:0.92rem;font-weight:500;color:var(--noir);letter-spacing:0.01em}
+  .item-info .item-desc{font-size:0.78rem;color:var(--muted);margin-top:0.2rem;line-height:1.5}
+  .item-badge{background:var(--blush);color:var(--gold);font-size:0.68rem;font-weight:500;padding:0.2rem 0.5rem;border-radius:2px;margin-top:0.4rem;display:inline-block;letter-spacing:0.06em;text-transform:uppercase}
+  .item-price{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--bordeaux);font-weight:600;white-space:nowrap;margin-left:1rem}
+
+  /* TESTIMONIALS */
+  .test-header{padding:2.5rem 2rem 1rem;background:var(--white);border-bottom:1px solid var(--blush)}
+  .test-header h2{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--noir)}
+  .test-header p{font-size:0.88rem;color:var(--muted);margin-top:0.35rem}
+  .testimonials{padding:1.5rem 2rem 2rem;display:flex;flex-direction:column;gap:1rem}
+  .test-card{background:var(--white);border:1px solid var(--blush);border-radius:2px;padding:1.5rem}
+  .test-stars{color:var(--gold);font-size:0.9rem;margin-bottom:0.75rem;letter-spacing:2px}
+  .test-quote{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--noir);line-height:1.7;font-style:italic;margin-bottom:1rem}
+  .test-footer{display:flex;align-items:center;gap:0.75rem}
+  .test-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:500;flex-shrink:0}
+  .test-name{font-size:0.85rem;font-weight:500;color:var(--noir)}
+  .test-role{font-size:0.75rem;color:var(--muted)}
+  .test-tag{margin-left:auto;font-size:0.68rem;background:var(--blush);color:var(--gold);padding:0.2rem 0.6rem;border-radius:2px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase}
+  .rating-bar{padding:0 2rem 1rem;display:flex;align-items:center;gap:1rem}
+  .big-rating{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--noir);font-weight:600}
+  .rating-detail{flex:1}
+  .r-row{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.2rem}
+  .r-label{font-size:0.75rem;color:var(--muted);width:40px}
+  .r-track{flex:1;height:5px;background:var(--blush);border-radius:0;overflow:hidden}
+  .r-fill{height:100%;background:var(--gold);border-radius:0}
+  .r-count{font-size:0.72rem;color:var(--muted);width:20px}
+
+</style>
+
+<div id="app">
+  <nav>
+    <div class="logo">Vanish<span>Café</span></div>
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="showPage('home')">Home</button>
+      <button class="tab-btn" onclick="showPage('menu')">Menu</button>
+      <button class="tab-btn" onclick="showPage('testimonials')">Testimonials</button>
+    </div>
+  </nav>
+
+  <div id="home" class="page active">
+    
+  <div class="hero">
+    <div class="hero-tag">Charlotte's Finest Haute Popup Cafe</div>
+
+    <h1>Le café qui<br><em>disparaît</em></h1>
+
+    <p>A roaming, one-hour pop-up café experience...</p>
+
+    <button class="hero-cta" onclick="showPage('menu')">
+      Explore the menu →
+    </button>
+
+   
+    <div class="hero-images">
+  <img src="Anton_Ego.jpg" class="hero-image">
+  <img src="Colorful Graffiti Circle Framed Instagram Profile Picture.jpg" class="hero-image large-image">
+</div>
+
+
+    <div class="hero-divider">
+      <span class="hero-divider-fleur">✦</span>
+    </div>
+  </div>
+  
+   
+    <div class="stats">
+      <div class="stat-card"><div class="stat-num">60</div><div class="stat-label">minutes per pop-up</div></div>
+      <div class="stat-card"><div class="stat-num">12+</div><div class="stat-label">locations visited</div></div>
+      <div class="stat-card"><div class="stat-num">4.9★</div><div class="stat-label">average rating</div></div>
+    </div>
+    <div class="features">
+      <div class="feature"><div class="feat-icon"></div><div><div class="feat-title">Boulangerie Fraîche</div><div class="feat-desc">Every pastry baked same-morning — croissants, pain au chocolat, madeleines, and more straight from the oven.</div></div></div>
+      <div class="feature"><div class="feat-icon"></div><div><div class="feat-title">Fromage & Terroir</div><div class="feat-desc">A rotating board of French AOC cheeses — Brie, Comté, Roquefort — sourced from specialist affineurs.</div></div></div>
+      <div class="feature"><div class="feat-icon"></div><div><div class="feat-title">Carte des Vins</div><div class="feat-desc">Curated natural wines from Burgundy, the Loire, and Alsace. Ask our sommelier for the pairing du jour.</div></div></div>
+      <div class="feature"><div class="feat-icon"></div><div><div class="feat-title">Spontaneity</div><div class="feat-desc">We arrive without announcement and disappear within the hour. Subscribe for location drops.</div></div></div>
+    </div>
+    
+
+  </div>
+    <div id="menu" class="page">
+    <div class="menu-header">
+      <h2>Le Menu</h2>
+      <p>Current theme: <strong>Parisian Haute</strong> — classic French, meticulously prepared</p>
+    </div>
+    <div class="menu-cats">
+      <button class="cat-btn active" onclick="filterMenu('all',this)">Tout</button>
+      <button class="cat-btn" onclick="filterMenu('coffee',this)">Café &amp; Thé</button>
+      <button class="cat-btn" onclick="filterMenu('drinks',this)">Boissons</button>
+      <button class="cat-btn" onclick="filterMenu('pastry',this)">Boulangerie</button>
+      <button class="cat-btn" onclick="filterMenu('starter',this)">Entrées</button>
+      <button class="cat-btn" onclick="filterMenu('main',this)">Plats</button>
+      <button class="cat-btn" onclick="filterMenu('cheese',this)">Fromage</button>
+      <button class="cat-btn" onclick="filterMenu('dessert',this)">Desserts</button>
+    </div>
+    <div class="menu-grid" id="menu-grid">
+
+      <!-- CAFÉ & THÉ -->
+      <div class="menu-item" data-cat="coffee"><div class="item-info"><div class="item-name">Café Noir</div><div class="item-desc">Double espresso, house blend, La Marzocco extraction</div><div class="item-badge">Classique</div></div><div class="item-price">$4.00</div></div>
+      <div class="menu-item" data-cat="coffee"><div class="item-info"><div class="item-name">Café au Lait</div><div class="item-desc">Strong filter coffee, steamed whole milk, served in a bowl</div></div><div class="item-price">$5.00</div></div>
+      <div class="menu-item" data-cat="coffee"><div class="item-info"><div class="item-name">Noisette</div><div class="item-desc">Ristretto with a touch of foamed milk</div></div><div class="item-price">$4.50</div></div>
+      <div class="menu-item" data-cat="coffee"><div class="item-info"><div class="item-name">Thé Earl Grey</div><div class="item-desc">Loose-leaf bergamot tea, served with a sugar cube</div></div><div class="item-price">$4.00</div></div>
+      <div class="menu-item" data-cat="coffee"><div class="item-info"><div class="item-name">Chocolat Chaud</div><div class="item-desc">Rich Valrhona drinking chocolate, steamed lait</div><div class="item-badge">Signature</div></div><div class="item-price">$5.50</div></div>
+
+      <!-- BOISSONS -->
+      <div class="menu-item" data-cat="drinks"><div class="item-info"><div class="item-name">Jus de Pomme Pressé</div><div class="item-desc">Fresh-pressed apple juice, cold, unsweetened</div></div><div class="item-price">$5.00</div></div>
+      <div class="menu-item" data-cat="drinks"><div class="item-info"><div class="item-name">Incroyable Limonade Maison</div><div class="item-desc">Citron pressé with sparkling eau, honey, fresh mint</div><div class="item-badge">Today only</div></div><div class="item-price">$5.50</div></div>
+      <div class="menu-item" data-cat="drinks"><div class="item-info"><div class="item-name">Kir Royale</div><div class="item-desc">Crémant de Bourgogne, crème de cassis — très chic</div><div class="item-badge">21+</div></div><div class="item-price">$9.00</div></div>
+      <div class="menu-item" data-cat="drinks"><div class="item-info"><div class="item-name">Vin Rouge du Jour</div><div class="item-desc">Natural Burgundy Pinot Noir, ask for today's selection</div><div class="item-badge">21+</div></div><div class="item-price">$10.00</div></div>
+      <div class="menu-item" data-cat="drinks"><div class="item-info"><div class="item-name">Eau Pétillante</div><div class="item-desc">Sparkling mineral water, chilled carafe</div></div><div class="item-price">$3.00</div></div>
+
+      <!-- BOULANGERIE & PÂTISSERIE -->
+      <div class="menu-item" data-cat="pastry"><div class="item-info"><div class="item-name">Délicieuse Croissant au Beurre</div><div class="item-desc">Classic laminated dough, 72-hour ferment, AOP butter</div><div class="item-badge">Baked today</div></div><div class="item-price">$4.50</div></div>
+      <div class="menu-item" data-cat="pastry"><div class="item-info"><div class="item-name">Tres Grosse Pain au Chocolat</div><div class="item-desc">Flaky pastry, two batons of 70% Valrhona dark chocolate</div><div class="item-badge">Baked today</div></div><div class="item-price">$5.00</div></div>
+      <div class="menu-item" data-cat="pastry"><div class="item-info"><div class="item-name">Baguette Tradition</div><div class="item-desc">Stone-milled flour, long cold proof, crisp crust — served sliced with beurre</div></div><div class="item-price">$4.00</div></div>
+      <div class="menu-item" data-cat="pastry"><div class="item-info"><div class="item-name">Brioche Dorée</div><div class="item-desc">Enriched egg-and-butter loaf, golden, lightly toasted</div></div><div class="item-price">$4.50</div></div>
+      <div class="menu-item" data-cat="pastry"><div class="item-info"><div class="item-name">Madeleine</div><div class="item-desc">Shell-shaped butter cake, lemon zest and vanilla</div><div class="item-badge">À la Proust</div></div><div class="item-price">$3.50</div></div>
+      <div class="menu-item" data-cat="pastry"><div class="item-info"><div class="item-name">Merveilleuse Palmier</div><div class="item-desc">Caramelized puff pastry heart — crisp, buttery, simple perfection</div></div><div class="item-price">$3.00</div></div>
+      <div class="menu-item" data-cat="pastry"><div class="item-info"><div class="item-name">Éclair au Café</div><div class="item-desc">Choux pastry filled with coffee crème pâtissière, fondant glaze</div><div class="item-badge">Signature</div></div><div class="item-price">$6.00</div></div>
+      <div class="menu-item" data-cat="pastry"><div class="item-info"><div class="item-name">Macaron Assortis</div><div class="item-desc">Three macarons — rose, pistachio, salted caramel</div></div><div class="item-price">$7.00</div></div>
+      <div class="menu-item" data-cat="pastry"><div class="item-info"><div class="item-name">Tarte Tatin (tranche)</div><div class="item-desc">Upside-down caramelised apple tart, crème fraîche</div><div class="item-badge">Limited</div></div><div class="item-price">$7.50</div></div>
+
+      <!-- ENTRÉES -->
+      <div class="menu-item" data-cat="starter"><div class="item-info"><div class="item-name">Soupe à l'Oignon</div><div class="item-desc">French onion soup, Gruyère croûte, deeply caramelised</div><div class="item-badge">Signature</div></div><div class="item-price">$10.00</div></div>
+      <div class="menu-item" data-cat="starter"><div class="item-info"><div class="item-name">Escargots de Bourgogne</div><div class="item-desc">Six snails, garlic-parsley beurre, toasted baguette</div></div><div class="item-price">$13.00</div></div>
+      <div class="menu-item" data-cat="starter"><div class="item-info"><div class="item-name">Foie Gras Maison</div><div class="item-desc">Duck foie gras terrine, fig confiture, brioche toast</div><div class="item-badge">Luxe</div></div><div class="item-price">$18.00</div></div>
+      <div class="menu-item" data-cat="starter"><div class="item-info"><div class="item-name">Salade Niçoise</div><div class="item-desc">Tuna, haricots verts, olives, soft egg, anchovy dressing</div></div><div class="item-price">$14.00</div></div>
+      <div class="menu-item" data-cat="starter"><div class="item-info"><div class="item-name">Pâté de Campagne</div><div class="item-desc">Rustic pork pâté, cornichons, moutarde de Dijon, baguette</div></div><div class="item-price">$11.00</div></div>
+      <div class="menu-item" data-cat="starter"><div class="item-info"><div class="item-name">Terrine de Légumes</div><div class="item-desc">Garden vegetable terrine, herb vinaigrette</div><div class="item-badge">Végétarien</div></div><div class="item-price">$10.00</div></div>
+      <div class="menu-item" data-cat="starter"><div class="item-info"><div class="item-name">Quiche Lorraine</div><div class="item-desc">Egg, cream, and lardons tart in a buttery shell</div></div><div class="item-price">$9.00</div></div>
+
+      <!-- PLATS PRINCIPAUX -->
+      <div class="menu-item" data-cat="main"><div class="item-info"><div class="item-name">Grande Coq au Vin</div><div class="item-desc">Chicken slow-braised in Burgundy red wine, pearl onions, mushrooms</div><div class="item-badge">Plat du Jour</div></div><div class="item-price">$22.00</div></div>
+      <div class="menu-item" data-cat="main"><div class="item-info"><div class="item-name">Boeuf Bourguignon</div><div class="item-desc">Slow-cooked beef from Burgundy, lardons, carrots, pomme purée</div><div class="item-badge">Signature</div></div><div class="item-price">$24.00</div></div>
+      <div class="menu-item" data-cat="main"><div class="item-info"><div class="item-name">Steak Frites</div><div class="item-desc">Bavette steak, sauce béarnaise, crispy frites, dressed watercress</div></div><div class="item-price">$26.00</div></div>
+      <div class="menu-item" data-cat="main"><div class="item-info"><div class="item-name">Duck Confit</div><div class="item-desc">Slow-cooked duck leg, duck-fat pommes sarladaises, green lentils</div><div class="item-badge">Signature</div></div><div class="item-price">$25.00</div></div>
+      <div class="menu-item" data-cat="main"><div class="item-info"><div class="item-name">Ratatouille Formidable</div><div class="item-desc">Provençal vegetable confit tian, fresh basil, olive oil</div><div class="item-badge">Végétarien</div></div><div class="item-price">$17.00</div></div>
+      <div class="menu-item" data-cat="main"><div class="item-info"><div class="item-name">Blanquette de Veau</div><div class="item-desc">Creamy veal stew, button mushrooms, riz blanc</div></div><div class="item-price">$23.00</div></div>
+      <div class="menu-item" data-cat="main"><div class="item-info"><div class="item-name">Bouillabaisse</div><div class="item-desc">Marseille seafood stew — fish, mussels, saffron broth, rouille</div><div class="item-badge">Limited</div></div><div class="item-price">$28.00</div></div>
+      <div class="menu-item" data-cat="main"><div class="item-info"><div class="item-name">Cassoulet</div><div class="item-desc">Rich white bean cassoulet, duck confit and Toulouse sausage</div></div><div class="item-price">$22.00</div></div>
+      <div class="menu-item" data-cat="main"><div class="item-info"><div class="item-name">Choucroute Garnie</div><div class="item-desc">Alsatian sauerkraut, smoked sausages, pork belly, mustard</div></div><div class="item-price">$21.00</div></div>
+      <div class="menu-item" data-cat="main"><div class="item-info"><div class="item-name">Fondue Savoyarde</div><div class="item-desc">Comté and Gruyère fondue, crusty bread, cornichons — for two</div><div class="item-badge">Pour deux</div></div><div class="item-price">$32.00</div></div>
+      <div class="menu-item" data-cat="main"><div class="item-info"><div class="item-name">Tartiflette</div><div class="item-desc">Reblochon, potato, lardons and onion gratin — Savoie classic</div></div><div class="item-price">$19.00</div></div>
+      <div class="menu-item" data-cat="main"><div class="item-info"><div class="item-name">Flammekueche</div><div class="item-desc">Alsatian thin-crust tart, crème fraîche, onions, lardons</div></div><div class="item-price">$17.00</div></div>
+      <div class="menu-item" data-cat="main"><div class="item-info"><div class="item-name">Socca</div><div class="item-desc">Niçoise chickpea flour galette, rosemary, fleur de sel</div><div class="item-badge">Végétarien</div></div><div class="item-price">$10.00</div></div>
+      <div class="menu-item" data-cat="main"><div class="item-info"><div class="item-name">Crêpe Complète</div><div class="item-desc">Buckwheat galette, jambon, Gruyère, œuf au plat</div></div><div class="item-price">$14.00</div></div>
+
+      <!-- FROMAGE -->
+      <div class="menu-item" data-cat="cheese"><div class="item-info"><div class="item-name">Plateau de Fromage</div><div class="item-desc">Five AOC cheeses — Brie, Camembert, Roquefort, Comté, Reblochon — with honey, fig jam, walnut bread</div><div class="item-badge">Signature</div></div><div class="item-price">$22.00</div></div>
+      <div class="menu-item" data-cat="cheese"><div class="item-info"><div class="item-name">Brie de Meaux</div><div class="item-desc">Creamy AOC Brie, served at room temperature with baguette</div></div><div class="item-price">$9.00</div></div>
+      <div class="menu-item" data-cat="cheese"><div class="item-info"><div class="item-name">Camembert Rôti</div><div class="item-desc">Baked Normandy Camembert, honey drizzle, crusty bread</div><div class="item-badge">Today only</div></div><div class="item-price">$12.00</div></div>
+      <div class="menu-item" data-cat="cheese"><div class="item-info"><div class="item-name">Géniale Roquefort</div><div class="item-desc">Sheep's milk blue, Combalou caves — paired with honey and walnuts</div></div><div class="item-price">$10.00</div></div>
+      <div class="menu-item" data-cat="cheese"><div class="item-info"><div class="item-name">Comté 24 Mois</div><div class="item-desc">Aged mountain Comté, nutty and crystalline, served sliced</div></div><div class="item-price">$10.00</div></div>
+
+      <!-- DESSERTS -->
+      <div class="menu-item" data-cat="dessert"><div class="item-info"><div class="item-name">Crème Brûlée</div><div class="item-desc">Classic vanilla custard, torched caramel sugar crust</div><div class="item-badge">Signature</div></div><div class="item-price">$9.00</div></div>
+      <div class="menu-item" data-cat="dessert"><div class="item-info"><div class="item-name">Profiteroles</div><div class="item-desc">Choux puffs, vanilla glace, warm chocolate sauce</div></div><div class="item-price">$9.50</div></div>
+      <div class="menu-item" data-cat="dessert"><div class="item-info"><div class="item-name">Mille-Feuille</div><div class="item-desc">Layers of puff pastry, crème pâtissière, fondant icing</div><div class="item-badge">Baked today</div></div><div class="item-price">$8.50</div></div>
+      <div class="menu-item" data-cat="dessert"><div class="item-info"><div class="item-name">Clafoutis aux Cerises</div><div class="item-desc">Baked cherry custard pudding, dusted icing sugar</div></div><div class="item-price">$8.00</div></div>
+      <div class="menu-item" data-cat="dessert"><div class="item-info"><div class="item-name">Soufflé au Grand Marnier</div><div class="item-desc">Light orange soufflé, made to order — allow 15 minutes</div><div class="item-badge">Made to order</div></div><div class="item-price">$13.00</div></div>
+      <div class="menu-item" data-cat="dessert"><div class="item-info"><div class="item-name">Crêpe Suzette</div><div class="item-desc">Thin crêpe, orange beurre blanc, flambéed Grand Marnier</div><div class="item-badge">Signature</div></div><div class="item-price">$11.00</div></div>
+      <div class="menu-item" data-cat="dessert"><div class="item-info"><div class="item-name">Glace Maison</div><div class="item-desc">Two scoops — vanilla, chocolat, or fraise — with tuile biscuit</div></div><div class="item-price">$7.00</div></div>
+      <div class="menu-item" data-cat="dessert"><div class="item-info"><div class="item-name">Gâteau au Chocolat</div><div class="item-desc">Dense Valrhona chocolate cake, crème anglaise</div></div><div class="item-price">$9.00</div></div>
+
+    </div>
+  </div>
+
+  <div id="testimonials" class="page">
+    <div class="test-header">
+      <div class="hero">
+        <div class="test-stars" style="font-size:3.4rem;font-family:'Courier New', Courier, monospace;">Real Testimonials From Dedicated Members of the Community</div>
+    </div>
+    <div class="rating-bar">
+      <div class="big-rating">4.9</div>
+      <div class="rating-detail">
+        <div class="r-row"><span class="r-label" style="font-size:0.7rem">5 ★</span><div class="r-track"><div class="r-fill" style="width:91%"></div></div><span class="r-count">91%</span></div>
+        <div class="r-row"><span class="r-label" style="font-size:0.7rem">4 ★</span><div class="r-track"><div class="r-fill" style="width:7%"></div></div><span class="r-count">7%</span></div>
+        <div class="r-row"><span class="r-label" style="font-size:0.7rem">3 ★</span><div class="r-track"><div class="r-fill" style="width:2%"></div></div><span class="r-count">2%</span></div>
+      </div>
+    </div>
+    <div class="testimonials">
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <div class="test-quote">"Le restaurant est bon. Les employés travaillent bien. J'ai un café."</div>
+        <div class="test-footer">
+          <div class="test-avatar" style="background:#F2E8DF;color:#B8965A">TD</div>
+          <div><div class="test-name">Te Du</div></div>
+          <div class="test-tag">Parisian Haute</div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <div class="test-quote">“La musique est bonne. Nous avons une table. Les employés dansent.”</div>
+        <div class="test-footer">
+          <div class="test-avatar" style="background:#F0E8F2;color:#90D5FF">OA</div>
+          <div><div class="test-name">Owen Ahlers</div></div>
+          <div class="test-tag">Parisian Haute</div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <div class="test-quote">"Les chefs créent de bons plats. Mon ami et moi avons une table."</div>
+        <div class="test-footer">
+          <div class="test-avatar" style="background:#E4EAF0;color:#3870A4">LH</div>
+          <div><div class="test-name">Lucas Steven Hall</div></div>
+          <div class="test-tag">Parisian Haute</div>
+        </div>
+      </div>
+      <div class="test-card">
+  <div class="test-stars">★★★★☆</div>
+
+  <div class="test-quote">
+    "Le restaurant est petit. Les employés jouent de la musique. J'ai une tarte."
+  </div>
+
+  <div class="test-footer">
+    <div class="test-avatar">
+      <img src="anton-ego.jpg" alt="Anton Ego">
+    </div>
+
+    <div>
+      <div class="test-name">The Honourable Food Critic, Anton Ego</div>
+    </div>
+
+    <div class="test-tag">Parisian Haute</div>
+  </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <div class="test-quote">"J'adore «Le café qui disparaître». Je visite souvent VanishCafé."</div>
+        <div class="test-footer">
+          <div class="test-avatar" style="background:#F0E8F2;color:#8A5AA4">FS</div>
+          <div><div class="test-name">Fritz Sagi</div></div>
+          <div class="test-tag">Parisian Haute</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+     
+
+
+<script>
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const btns = document.querySelectorAll('.tab-btn');
+  const map = {home:0,menu:1,testimonials:2};
+  btns[map[id]].classList.add('active');
+}
+function filterMenu(cat,btn){
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.menu-item').forEach(item=>{
+    item.classList.toggle('hidden', cat!=='all' && item.dataset.cat!==cat);
+  });
+}
+</script>
